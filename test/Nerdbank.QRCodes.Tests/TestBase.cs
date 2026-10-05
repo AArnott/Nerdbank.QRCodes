@@ -3,8 +3,12 @@
 
 using System.Reflection;
 
+using TUnit;
+
 public abstract class TestBase
 {
+	protected DefaultLogger Logger => TestContext.Current?.GetDefaultLogger() ?? throw new InvalidOperationException();
+
 	protected static Stream GetResourceStream(string name)
 	{
 		Stream? result = Assembly.GetExecutingAssembly().GetManifestResourceStream($"Resources.{name}");
