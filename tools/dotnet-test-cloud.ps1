@@ -107,6 +107,7 @@ if ($isMTP) {
         -p:Platform=$platform `
         -bl:"$testBinLog" `
         -- `
+        --filter-not-trait 'TestCategory=FailsInCloudTest' `
         @mtpArgs `
         @dumpSwitches `
         @extraArgs
