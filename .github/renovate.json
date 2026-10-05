@@ -16,6 +16,10 @@
 			"schedule": ["on the first day of the month"]
 		},
 		{
+			"matchPackageNames": ["tunit*"],
+			"groupName": "tunit"
+		},
+		{
 			"matchPackageNames": ["Microsoft.Testing.Extensions.*"],
 			"groupName": "Microsoft Testing Platform"
 		},

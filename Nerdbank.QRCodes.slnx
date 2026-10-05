@@ -38,4 +38,5 @@
     </Project>
     <Project Path="test/Nerdbank.QRCodes.Tool.Tests/Nerdbank.QRCodes.Tool.Tests.csproj" />
   </Folder>
+  <Project Path="test/AotCompatibilityTest/AotCompatibilityTest.csproj" />
 </Solution>
