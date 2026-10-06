@@ -1,18 +1,19 @@
 // Copyright (c) Andrew Arnott. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-public class QRDecoderTests(ITestOutputHelper logger) : TestBase
+public class QRDecoderTests : TestBase
 {
-	public static readonly string[] SupportedFileTypes = ["bmp", "gif", "png", "jpg"];
-	public static readonly object[][] SupportedFileTypesData = SupportedFileTypes.Select(ft => new object[] { ft }).ToArray();
-
-	[Fact]
+	[Test]
 	public void TryDecode_Span_NoQRCode() => this.AssertQRCode(null, "noQRcode.jpg");
 
-	[Theory, MemberData(nameof(SupportedFileTypesData))]
+	[Test]
+	[Arguments("bmp")]
+	[Arguments("gif")]
+	[Arguments("png")]
+	[Arguments("jpg")]
 	public void TryDecode_Span(string extension) => this.AssertQRCode("Hello, World!", $"Generated1.{extension}");
 
-	[Fact]
+	[Test]
 	public void RealPhoto()
 	{
 		this.AssertQRCode_Path(
@@ -20,10 +21,10 @@ public class QRDecoderTests(ITestOutputHelper logger) : TestBase
 			"realphoto_zcash_payment_request.jpg");
 	}
 
-	[Fact]
+	[Test]
 	public void TryDecode_Path() => this.AssertQRCode_Path("Hello, World!", "Generated1.png");
 
-	[Fact]
+	[Test]
 	public void TryDecode_Path_NoQRCode() => this.AssertQRCode_Path(null, "noQRcode.jpg");
 
 	private void AssertQRCode_Path(string? expectedText, string imageName)
@@ -31,7 +32,7 @@ public class QRDecoderTests(ITestOutputHelper logger) : TestBase
 		Assert.Equal(expectedText is not null, QRDecoder.TryDecode(GetResourceFilePath(imageName), out string? actualText));
 		if (actualText is not null)
 		{
-			logger.WriteLine(actualText);
+			this.Logger.LogInformation(actualText);
 		}
 
 		Assert.Equal(expectedText, actualText);
@@ -43,7 +44,7 @@ public class QRDecoderTests(ITestOutputHelper logger) : TestBase
 		Assert.Equal(expectedText is not null, QRDecoder.TryDecode(photo.Span, out string? actualText));
 		if (actualText is not null)
 		{
-			logger.WriteLine(actualText);
+			this.Logger.LogInformation(actualText);
 		}
 
 		Assert.Equal(expectedText, actualText);

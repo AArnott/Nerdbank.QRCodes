@@ -3,7 +3,7 @@
 
 public class EncodeCommandTests
 {
-	[Fact]
+	[Test]
 	public void Ctor()
 	{
 		var command = new EncodeCommand
