@@ -3,6 +3,10 @@
 
 using System.Runtime.InteropServices;
 
+#if IOS
+#pragma warning disable SA1121 // StyleCop 1.3.1-beta misreports the nuint keyword as needing an alias on the iOS target.
+#endif
+
 namespace Nerdbank.QRCodes;
 
 /// <summary>
