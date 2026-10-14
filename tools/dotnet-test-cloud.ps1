@@ -80,6 +80,7 @@ if ($isMTP) {
         ,'--crash-report-if-supported'
     )
     $mtpArgs = @(
+        ,'--treenode-filter=/**[Category!=FailsInCloudTest]'
         ,'--diagnostic'
         ,'--diagnostic-output-directory',$testLogs
         ,'--diagnostic-verbosity','Information'
@@ -107,7 +108,6 @@ if ($isMTP) {
         -p:Platform=$platform `
         -bl:"$testBinLog" `
         -- `
-        '--treenode-filter=/**[Category!=FailsInCloudTest]' `
         @mtpArgs `
         @dumpSwitches `
         @extraArgs
@@ -124,6 +124,7 @@ if ($isMTP) {
             }
 
             $nativeAotArgs = @(
+                ,'--treenode-filter=/**[Category!=FailsInCloudTest]'
                 ,'--diagnostic'
                 ,'--diagnostic-output-directory',$testLogs
                 ,'--diagnostic-verbosity','Information'
