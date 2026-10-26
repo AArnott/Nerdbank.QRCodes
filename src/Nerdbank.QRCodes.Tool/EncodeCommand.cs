@@ -197,10 +197,7 @@ public class EncodeCommand
 
 		if (this.OutputFile is not null)
 		{
-			TraceSource? traceSource = this.Output is null ? null : new("QR writer")
-			{
-				Listeners = { new TraceSourceTextWriterListener(this.Output) },
-			};
+			TraceSource? traceSource = this.Output is null ? null : new("QR writer") { Listeners = { new TraceSourceTextWriterListener(this.Output) }, };
 			this.Encoder.Encode(data, this.OutputFile, traceSource);
 			this.Output?.WriteLine($"Saved to: \"{this.OutputFile.FullName}\"");
 		}
