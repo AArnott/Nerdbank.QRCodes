@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- https://learn.microsoft.com/dotnet/fundamentals/package-validation/diagnostic-ids -->
+<!-- .NET 8 target frameworks are no longer supported. net10.0 replaces net8.0, net10.0-windows replaces net8.0-windows, and net10.0-ios26.0 replaces net8.0-ios17.0. -->
+<Suppressions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Suppression>
+    <DiagnosticId>PKV006</DiagnosticId>
+    <Target>net8.0</Target>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>PKV006</DiagnosticId>
+    <Target>net8.0-ios17.0</Target>
+  </Suppression>
+  <Suppression>
+    <DiagnosticId>PKV006</DiagnosticId>
+    <Target>net8.0-windows7.0</Target>
+  </Suppression>
+</Suppressions>
