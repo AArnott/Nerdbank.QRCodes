@@ -81,7 +81,7 @@
     <RustBinary Include="@(DesktopRustBinary);@(MobileRustBinary)" />
 
     <!-- Do not include rust symbols in the snupkg because nuget.org will reject the whole package as it only supports portable pdbs. -->
-    <!-- <TfmSpecificDebugSymbolsFile Include="@(RustSymbol)" Condition="'$(TargetFramework)'=='net8.0'">
+    <!-- <TfmSpecificDebugSymbolsFile Include="@(RustSymbol)" Condition="'$(TargetFramework)'=='net10.0'">
       <TargetPath>/%(PackagePath)%(FileName)%(Extension)</TargetPath>
       <TargetFramework>native</TargetFramework>
     </TfmSpecificDebugSymbolsFile> -->
