@@ -7,7 +7,7 @@
     <MicrosoftTestingPlatformVersion>2.5.3</MicrosoftTestingPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="QRCoder" Version="1.8.1" />
+    <PackageVersion Include="QRCoder" Version="1.9.0" />
     <PackageVersion Include="System.CommandLine" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup Label="Library.Template">
